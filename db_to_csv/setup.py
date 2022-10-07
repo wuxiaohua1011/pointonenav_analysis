@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'db_to_csv = db_to_csv.db_to_csv:main'
+            'db_to_csv = db_to_csv.db_to_csv:main',
+            'rtk_accuracy_test = db_to_csv.rtk_accuracy_test:main'
         ],
     },
 )
