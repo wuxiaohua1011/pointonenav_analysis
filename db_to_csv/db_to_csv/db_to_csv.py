@@ -4,6 +4,7 @@ from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy
 from std_msgs.msg import String
 from sensor_msgs.msg import NavSatFix
 import pandas as pd 
+from pathlib import Path
 class MinimalSubscriber(Node):
 
     def __init__(self):
@@ -28,8 +29,9 @@ class MinimalSubscriber(Node):
     def destroy_node(self):
         super()
         df:pd.DataFrame = pd.DataFrame(self.data_log, columns=['latitude','longitude','altitude'])
-
-        df.to_csv("./gps_3.csv")
+        output_file_path = Path("./test4_walk_side_of_road.csv")
+        df.to_csv(output_file_path.as_posix())
+        self.get_logger().info(f"File saved to {output_file_path}")
 
 def main(args=None):
     try:

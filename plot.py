@@ -26,7 +26,7 @@ class CustomGoogleMapPlotter(GoogleMapPlotter):
             '\t\tvar map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);\n')
         f.write('\n')
 
-file_name = "gps_1"
+file_name = "test4_walk_side_of_road"
 df = pd.read_csv(f"./{file_name}.csv")
 latitude_list = list(df.latitude)
 longitude_list = list(df.longitude)
